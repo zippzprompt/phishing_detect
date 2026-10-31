@@ -1,0 +1,197 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Inter:wght@400;500;600&display=swap');
+
+:root {
+    --navy: #0F2540;
+    --navy-deep: #0A1A2E;
+    --teal: #0E7C86;
+    --teal-light: #14A5B3;
+    --danger: #C0392B;
+    --danger-bg: #FBEAE8;
+    --safe: #1E8A5F;
+    --safe-bg: #E8F5EE;
+    --ink: #1B2430;
+    --muted: #5B6B7A;
+    --paper: #F7F9FB;
+    --card: #FFFFFF;
+    --line: #E1E7EC;
+}
+
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    line-height: 1.5;
+}
+
+header {
+    background: linear-gradient(135deg, var(--navy-deep), var(--navy));
+    color: white;
+    padding: 2.5rem 1.5rem 2rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+header::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: repeating-linear-gradient(
+        0deg,
+        rgba(20, 165, 179, 0.08) 0px,
+        rgba(20, 165, 179, 0.08) 1px,
+        transparent 1px,
+        transparent 28px
+    );
+    pointer-events: none;
+}
+
+header h1 {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 700;
+    font-size: 1.6rem;
+    margin: 0 0 0.4rem;
+    letter-spacing: -0.01em;
+    position: relative;
+}
+
+.subtitle {
+    margin: 0;
+    color: var(--teal-light);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.85rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    position: relative;
+}
+
+main {
+    max-width: 720px;
+    margin: -1.5rem auto 2rem;
+    padding: 0 1.25rem;
+    position: relative;
+}
+
+.card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 2rem;
+    box-shadow: 0 8px 24px rgba(15, 37, 64, 0.06);
+}
+
+.card h2 {
+    margin-top: 0;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1.1rem;
+}
+
+.url-form {
+    display: flex;
+    gap: 0.6rem;
+    margin: 1.5rem 0 0.75rem;
+}
+
+.url-form input[type="text"] {
+    flex: 1;
+    padding: 0.75rem 0.9rem;
+    border: 1.5px solid var(--line);
+    border-radius: 6px;
+    font-size: 0.95rem;
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--ink);
+}
+
+.url-form input[type="text"]:focus {
+    outline: 2px solid var(--teal-light);
+    outline-offset: 1px;
+    border-color: var(--teal);
+}
+
+.url-form button {
+    background: var(--teal);
+    color: white;
+    border: none;
+    padding: 0 1.4rem;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: background 0.15s ease;
+}
+
+.url-form button:hover { background: var(--teal-light); }
+.url-form button:focus-visible { outline: 2px solid var(--navy); outline-offset: 2px; }
+
+.note { color: var(--muted); font-size: 0.85rem; }
+
+.alert {
+    padding: 0.75rem 1rem;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    margin: 1rem 0;
+}
+.alert-error { background: var(--danger-bg); color: var(--danger); }
+.alert-warning { background: #FFF6E5; color: #8A6100; }
+
+.back-link {
+    display: inline-block;
+    color: var(--teal);
+    text-decoration: none;
+    font-size: 0.85rem;
+    margin-bottom: 1rem;
+    font-weight: 500;
+}
+.back-link:hover { text-decoration: underline; }
+
+.checked-url {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.9rem;
+    color: var(--muted);
+    word-break: break-all;
+    margin-top: 0;
+}
+
+.result-badge {
+    display: inline-block;
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 700;
+    font-size: 1.4rem;
+    padding: 0.6rem 1.2rem;
+    border-radius: 8px;
+    letter-spacing: 0.03em;
+}
+.result-badge.phishing { background: var(--danger-bg); color: var(--danger); }
+.result-badge.legitimate { background: var(--safe-bg); color: var(--safe); }
+
+.confidence { color: var(--muted); }
+
+.shap-plot {
+    max-width: 100%;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    margin: 0.75rem 0 1.5rem;
+}
+
+.feature-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.88rem;
+    font-family: 'JetBrains Mono', monospace;
+}
+.feature-table th, .feature-table td {
+    text-align: left;
+    padding: 0.5rem 0.6rem;
+    border-bottom: 1px solid var(--line);
+}
+.feature-table th { color: var(--muted); font-weight: 600; }
+
+footer {
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.78rem;
+    padding: 1.5rem;
+}

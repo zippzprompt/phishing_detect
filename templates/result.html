@@ -1,0 +1,40 @@
+{% extends "base.html" %} {% block content %}
+<section class="card">
+  <a href="{{ url_for('index') }}" class="back-link">&larr; Cek URL lain</a>
+
+  <h2>Hasil Pemeriksaan</h2>
+  <p class="checked-url">{{ url }}</p>
+
+  <div class="result-badge {{ 'phishing' if is_phishing else 'legitimate' }}">{{ '⚠️ PHISHING' if is_phishing else '✅ LEGITIMATE' }}</div>
+
+  {% if warning %}
+  <div class="alert alert-warning">{{ warning }}</div>
+  {% endif %} {% if domain_flagged %}
+
+  <div class="alert alert-warning">⚠️ Terindikasi peniruan domain (URLSimilarityIndex = {{ similarity_score }}, ambang batas 80)</div>
+  {% endif %}
+
+  <p class="note">Prediksi model Random Forest: {{ model_label }} ({{ model_confidence }}%)</p>
+  <h3>Penjelasan Prediksi (SHAP Waterfall Plot)</h3>
+  <p class="note">Grafik ini menunjukkan fitur mana yang paling mendorong prediksi ke arah {{ 'Phishing' if is_phishing else 'Legitimate' }}, beserta besar kontribusinya.</p>
+  <img class="shap-plot" src="data:image/png;base64,{{ plot_b64 }}" alt="SHAP waterfall plot" />
+
+  <h3>Detail Fitur</h3>
+  <table class="feature-table">
+    <thead>
+      <tr>
+        <th>Fitur</th>
+        <th>Nilai</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for name, value in features.items() %}
+      <tr>
+        <td>{{ name }}</td>
+        <td>{{ value }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</section>
+{% endblock %}

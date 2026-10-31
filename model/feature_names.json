@@ -1,0 +1,17 @@
+[
+  "URLSimilarityIndex",
+  "NoOfExternalRef",
+  "LineOfCode",
+  "NoOfSelfRef",
+  "NoOfImage",
+  "HasSubmitButton",
+  "NoOfJS",
+  "HasCopyrightInfo",
+  "URLTitleMatchScore",
+  "HasSocialNet",
+  "NoOfCSS",
+  "IsResponsive",
+  "URLLength",
+  "HasFavicon",
+  "IsHTTPS"
+]

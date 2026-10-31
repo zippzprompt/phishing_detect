@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Deteksi Phishing Website{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>🛡️ Sistem Deteksi Phishing Website</h1>
+        <p class="subtitle">Random Forest + SHAP Explainability</p>
+    </header>
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+    <footer>
+        <p>Skripsi — Model Interpretabilitas Deteksi Phishing Website Menggunakan Kombinasi Random Forest dan TreeSHAP</p>
+    </footer>
+</body>
+</html>

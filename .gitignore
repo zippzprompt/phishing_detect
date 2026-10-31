@@ -1,0 +1,44 @@
+# ==============================
+# Python cache
+# ==============================
+__pycache__/
+*.py[cod]
+*$py.class
+
+# ==============================
+# Virtual environment
+# ==============================
+venv/
+.venv/
+env/
+
+# ==============================
+# Environment variables / secrets
+# ==============================
+.env
+.env.*
+!.env.example
+
+# ==============================
+# IDE and operating system
+# ==============================
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# ==============================
+# Testing and logs
+# ==============================
+.pytest_cache/
+.coverage
+htmlcov/
+*.log
+
+# ==============================
+# Jupyter Notebook
+# ==============================
+.ipynb_checkpoints/
+
+# Exclude PhiUSIIL dataset
+model/PhiUSIIL_Phishing_URL_Dataset.csv
