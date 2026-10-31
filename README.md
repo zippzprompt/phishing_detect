@@ -1,8 +1,8 @@
 # Sistem Deteksi Phishing Website (Interface Flask)
 
-Interface web untuk model Random Forest + SHAP dari skripsi *"Model
+Interface web untuk model Random Forest + SHAP dari skripsi _"Model
 Interpretabilitas Deteksi Phishing Website Menggunakan Kombinasi Random
-Forest dan TreeSHAP"*. User memasukkan URL, sistem mengambil halaman
+Forest dan TreeSHAP"_. User memasukkan URL, sistem mengambil halaman
 webnya, menghitung fitur, memprediksi Phishing/Legitimate, dan
 menampilkan penjelasan SHAP waterfall plot.
 
@@ -20,23 +20,23 @@ tapi hanya memakai **15 fitur** dengan **Mean |SHAP Value|** tertinggi
 dari hasil analisis skripsi, yang dipilih karena semuanya bisa dihitung
 langsung dari URL + HTML halaman tanpa butuh tabel statistik training:
 
-| # | Fitur | Mean \|SHAP\| (skripsi) |
-|---|-------|--------------------------|
-| 1 | URLSimilarityIndex | 0.1642 |
-| 2 | NoOfExternalRef | 0.0730 |
-| 3 | LineOfCode | 0.0515 |
-| 4 | NoOfSelfRef | 0.0405 |
-| 5 | NoOfImage | 0.0344 |
-| 6 | HasSubmitButton | 0.0188 |
-| 7 | NoOfJS | 0.0184 |
-| 8 | HasCopyrightInfo | 0.0175 |
-| 9 | URLTitleMatchScore | 0.0151 |
-| 10 | HasSocialNet | 0.0141 |
-| 11 | NoOfCSS | 0.0134 |
-| 12 | IsResponsive | 0.0121 |
-| 13 | URLLength | 0.0099 |
-| 14 | HasFavicon | 0.0085 |
-| 15 | IsHTTPS | 0.0083 |
+| #   | Fitur              | Mean \|SHAP\| (skripsi) |
+| --- | ------------------ | ----------------------- |
+| 1   | URLSimilarityIndex | 0.1642                  |
+| 2   | NoOfExternalRef    | 0.0730                  |
+| 3   | LineOfCode         | 0.0515                  |
+| 4   | NoOfSelfRef        | 0.0405                  |
+| 5   | NoOfImage          | 0.0344                  |
+| 6   | HasSubmitButton    | 0.0188                  |
+| 7   | NoOfJS             | 0.0184                  |
+| 8   | HasCopyrightInfo   | 0.0175                  |
+| 9   | URLTitleMatchScore | 0.0151                  |
+| 10  | HasSocialNet       | 0.0141                  |
+| 11  | NoOfCSS            | 0.0134                  |
+| 12  | IsResponsive       | 0.0121                  |
+| 13  | URLLength          | 0.0099                  |
+| 14  | HasFavicon         | 0.0085                  |
+| 15  | IsHTTPS            | 0.0083                  |
 
 Hasil retrain (lihat `model/metrics.json`, dihasilkan otomatis oleh
 `model/train_lightweight_model.py`): akurasi test-set ~99.98%, hampir
@@ -94,6 +94,7 @@ phishing_app/
 Model sudah terlatih dan tersimpan di `model/phishing_rf_lite.joblib` —
 tidak perlu training ulang untuk menjalankan aplikasi. Kalau mau
 melatih ulang (misalnya ganti subset fitur), jalankan:
+
 ```bash
 cd model
 python train_lightweight_model.py
@@ -109,3 +110,28 @@ python train_lightweight_model.py
   (approximation), bukan replikasi rumus asli dataset PhiUSIIL.
 - Model dilatih ulang dengan 15 dari 70 fitur asli — trade-off yang
   disengaja untuk kebutuhan deployment real-time (dijelaskan di atas).
+
+# Phishing Website Detection using Random Forest and TreeSHAP
+
+Proyek ini merupakan aplikasi berbasis web untuk mendeteksi potensi phishing pada website menggunakan algoritma **Random Forest**. Aplikasi dikembangkan menggunakan Python dan framework Flask, dengan Playwright untuk membantu proses ekstraksi informasi dari URL website.
+
+Untuk meningkatkan transparansi hasil klasifikasi, proyek ini menggunakan **TreeSHAP** sebagai metode Explainable AI (XAI) yang membantu menjelaskan kontribusi fitur terhadap hasil prediksi model. Dengan demikian, pengguna tidak hanya memperoleh hasil deteksi, tetapi juga dapat memahami faktor-faktor yang memengaruhi keputusan model.
+
+### Teknologi yang Digunakan
+
+- **Python** — Bahasa pemrograman utama.
+- **Flask** — Framework untuk membangun aplikasi web.
+- **Playwright** — Otomatisasi browser untuk membantu ekstraksi informasi website.
+- **Random Forest** — Algoritma machine learning untuk klasifikasi website phishing dan legitimate.
+- **TreeSHAP** — Metode interpretabilitas model untuk menganalisis kontribusi fitur terhadap hasil prediksi.
+
+### Tujuan Proyek
+
+- Mengembangkan aplikasi deteksi phishing website berbasis machine learning.
+- Mengklasifikasikan URL website berdasarkan karakteristik fiturnya.
+- Mengintegrasikan interpretabilitas model menggunakan TreeSHAP.
+- Menyediakan antarmuka web untuk mempermudah proses pemeriksaan URL.
+
+### Catatan
+
+Hasil deteksi merupakan prediksi berdasarkan model dan fitur yang digunakan, sehingga tidak menjamin bahwa suatu website sepenuhnya aman atau berbahaya.
